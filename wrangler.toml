@@ -1,0 +1,13 @@
+name = "vip-gym-deductions"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vip-gym"
+database_id = "c483bdf9-adda-4556-a24d-f416396fc456"
