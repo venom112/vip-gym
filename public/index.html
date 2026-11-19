@@ -514,6 +514,7 @@ function gM(id){return M.find(function(x){return x.id==id})}
 function rI(){$('itb').innerHTML=I.length?I.map(function(i){return'<tr><td>'+esc(i.n)+'</td><td>'+esc(MD[i.m]||'—')+'</td><td>'+N(i.v)+un(i.m)+'</td><td style="white-space:nowrap"><button class="g s" data-e="'+i.id+'">تعديل</button> <button class="d s" data-x="'+i.id+'">حذف</button></td></tr>'}).join(''):'<tr><td colspan="4" class="em">أضف أول بند خصم.</td></tr>'}
 function fillM(){if(!M.length)return;var v=$('im').value;opt($('im'),M.map(function(x){return[x.id,x.n]}));if(v&&gM(v))$('im').value=v;ivl()}
 
+var KT=[],edK=null,DEFK=[{id:'amount',n:'مبلغ ثابت (جنيه)',f:'amount',m:1},{id:'pct',n:'نسبة مئوية %',f:'pct',m:1},{id:'day',n:'أيام × (الأساسي ÷ عدد أيام الشهر)',f:'day',m:1}];
 $('mk').onchange=mkv;mkv();
 
 function rMeth(){$('mtb').innerHTML=M.length?M.map(function(x){return'<tr><td>'+esc(x.n)+'</td><td>'+mdesc(x)+'</td><td style="white-space:nowrap"><button class="g s" data-e="'+esc(x.id)+'">تعديل</button> <button class="d s" data-x="'+esc(x.id)+'">حذف</button></td></tr>'}).join(''):'<tr><td colspan="3" class="em">لا توجد طرق حساب. أضف طريقة.</td></tr>'}
@@ -584,8 +585,7 @@ $('zpt').onclick=function(ev){var b=ev.target,id=b.dataset.e||b.dataset.x,x=id&&
   if(ok(b)){PP=PP.filter(function(z){return z.id!=id});sv();refresh()}}};
 document.addEventListener('click',function(ev){var g=ev.target.dataset&&ev.target.dataset.go;if(g)go(g)});
 
-var KT=[],edK=null,DEFK=[{id:'amount',n:'مبلغ ثابت (جنيه)',f:'amount',m:1},{id:'pct',n:'نسبة مئوية %',f:'pct',m:1},{id:'day',n:'أيام × (الأساسي ÷ عدد أيام الشهر)',f:'day',m:1}];
-function lk(){return KT.length?KT:DEFK}
+function lk(){return (typeof KT!='undefined'&&KT.length)?KT:DEFK}
 function gK(id){return lk().find(function(t){return t.id==id})}
 function kf(id){var t=gK(id);return t?t.f:id}
 function km(id){var t=gK(id);return t&&t.m>0?t.m:1}
